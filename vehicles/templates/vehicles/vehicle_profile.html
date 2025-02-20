@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Vehicle Profile</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Vehicle</button>
+</form>
+
+<h3>Your Vehicles</h3>
+<ul>
+    {% for vehicle in vehicles %}
+    <li>{{ vehicle }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Maintenance Log</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Log Maintenance</button>
+</form>
+
+<h3>Maintenance History</h3>
+<ul>
+    {% for log in logs %}
+    <li>
+        <strong>Vehicle:</strong> {{ log.vehicle }}<br>
+        <strong>Service Type:</strong> {{ log.service_type }}<br>
+        <strong>Service Date:</strong> {{ log.service_date }}<br>
+        <strong>Mileage:</strong> {{ log.mileage }}<br>
+        <strong>Price:</strong> ${{ log.price }}<br>
+        <strong>Notes:</strong> {{ log.notes }}<br>
+        <strong>Receipt URL:</strong> <a href="{{ log.receipt_url }}" target="_blank">{{ log.receipt_url }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

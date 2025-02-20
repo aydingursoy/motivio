@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome to Motivio!</h1>
+<p>Track your vehicle maintenance with ease.</p>
+<a href="{% url 'vehicle_profile' %}">Go to Vehicle Profile</a>
+<a href="{% url 'maintenance_log' %}">Go to Maintenance Log</a>
+{% endblock %}
